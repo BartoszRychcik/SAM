@@ -1,0 +1,40 @@
+﻿<Window x:Class="ThreadPool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThreadPool"
+        mc:Ignorable="d"
+        Title="ThreadPool Bartosz Rychcik 165659" Height="580.992" Width="961.719">
+    <Grid Margin="0,0,0,0" HorizontalAlignment="Left" Width="951.719">
+        <Button Content="Select directory" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Input_Button_Click"/>
+        <Button Content="Select directory" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Output_Button_Click"/>
+        <Label Content="Observed directory:" HorizontalAlignment="Left" Margin="145,14,0,0" VerticalAlignment="Top" Width="115.344"/>
+        <Label Content="Output directory:" HorizontalAlignment="Left" Margin="145,47,0,0" VerticalAlignment="Top" Width="115.344"/>
+        <Label Content="{Binding PathOut}" HorizontalAlignment="Left" Margin="260.344,49,0,0" VerticalAlignment="Top" Width="298.469" Height="26"/>
+        <Label Content="{Binding PathIn}" HorizontalAlignment="Left" Margin="265.344,14,0,0" VerticalAlignment="Top" Width="293.469" Height="26"/>
+        <ListBox ItemsSource="{Binding Path=FileList}" HorizontalAlignment="Left" Height="235.062" Margin="0,302.938,0,0" VerticalAlignment="Top" Width="440.469"/>
+        <TextBox Text="{Binding Logs}" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left" Height="235.062" Margin="440.469,302.938,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="501.25"/>
+        <Label Content="Queue:" HorizontalAlignment="Left" Margin="10,271.938,0,0" VerticalAlignment="Top"/>
+        <Label Content="Logs:" HorizontalAlignment="Left" Margin="440.469,271.938,0,0" VerticalAlignment="Top"/>
+        <Button Content="Start observing" HorizontalAlignment="Left" Margin="563.813,14,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Start_observing_Button_Click"/>
+        <Button Content="Stop observing" HorizontalAlignment="Left" Margin="563.813,49,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Stop_observing_Button_Click"/>
+        <Label Content="Error:" HorizontalAlignment="Left" Margin="145,253.05,0,0" VerticalAlignment="Top" Height="26" Width="151.719"/>
+        <Label Content="{Binding Error}" HorizontalAlignment="Left" Margin="338,253.05,0,0" VerticalAlignment="Top" Width="613.719" Height="26"/>
+        <Button Content="Stop processing" HorizontalAlignment="Left" Margin="10,116.05,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Stop_processing_Button_Click"/>
+        <Button Content="Start processing" HorizontalAlignment="Left" Margin="10,81.05,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Start_processing_Button_Click"/>
+        <Label Content="Current modification progress[%]:" HorizontalAlignment="Left" Margin="145,222.05,0,0" VerticalAlignment="Top"/>
+        <Label Content="Current file:" HorizontalAlignment="Left" Margin="145,191.05,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding CurrentFile}" HorizontalAlignment="Left" Margin="338,191.05,0,0" VerticalAlignment="Top" Width="613.719" FontWeight="Bold" Height="26"/>
+        <Label Content="{Binding Percent}" HorizontalAlignment="Left" Margin="338,222.05,0,0" VerticalAlignment="Top" Width="613.719" FontWeight="Bold" Height="26"/>
+        <Button Content="Cancel processing" HorizontalAlignment="Left" Margin="10,151.05,0,0" VerticalAlignment="Top" Width="130" Height="30" Click="Cancel_processing_Button_Click"/>
+        <StackPanel HorizontalAlignment="Left" Height="79" Margin="338,98,0,0" VerticalAlignment="Top" Width="160.708">
+            <CheckBox x:Name="edges" Content="Edges" IsChecked="{Binding Edges}"/>
+            <CheckBox x:Name="erosion" Content="Erosion" IsChecked="{Binding Erosion}"/>
+            <CheckBox x:Name="adaptive" Content="AdaptiveSmoothing" IsChecked="{Binding Adaptive}"/>
+            <CheckBox x:Name="oil" Content="OilPaining" IsChecked="{Binding Oil}"/>
+            <CheckBox x:Name="jitter" Content="Jitter" IsChecked="{Binding Jitter}"/>
+        </StackPanel>
+        <Label Content="Filters:" HorizontalAlignment="Left" Margin="326.052,75,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
